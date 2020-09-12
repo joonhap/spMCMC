@@ -213,15 +213,15 @@ abline(v=.5+length(astarValues)*1:(length(algorithms)-1))
 if(gen_pdf) { dev.off() }
 
 ## min and avg ESS per second vs. astar and algorithms
-gen_pdf <- TRUE; cexlab <- 1.2; cexaxis <- 1.6; cexalgo <- 1.8; cexpt <- 8
-if(gen_pdf) { pdf(file='figures/mvnormModel/ESSperSec_astar_algo.pdf', width=10, height=6.5) }
+gen_pdf <- TRUE; cexlab <- 1.2; cexaxis <- 1.4; cexalgo <- 1.5; cexpt <- 5
+if(gen_pdf) { pdf(file='figures/mvnormModel/ESSperSec_astar_algo_twocolumn.pdf', width=6, height=5.5) }
 par(mar=c(4,4.5,0.3,.3)); par(mfrow=c(3,1), oma=c(2.8,0,2,0))
 ## minimum ESS per second
 plot(rep(1:(length(algorithms)*length(astarValues)),each=length(repNoRange)),minESSps, pch='.', xaxt='n',yaxt='n', xlab='',ylab='', xaxs="i", cex=cexpt, xlim=c(1-.5,(length(algorithms)*length(astarValues))+.5), log='y')
 axis(side=2, cex.axis=cexaxis)
 axis(side=1, at=1:(length(algorithms)*length(astarValues)), labels=NA, cex.axis=cexaxis)
 axis(side=1, at=1:(length(algorithms)*length(astarValues)), labels=rep(astarValues,length(algorithms)), cex.axis=cexaxis, lty=0, line=-.2, las=3)
-mtext(side=2, line=3, text='minimum ESS /sec', cex=cexlab)
+mtext(side=2, line=3, text='min ESS/sec', cex=cexlab)
 axis(side=3, line=-1, outer=TRUE, at=(1+length(astarValues))/2+length(astarValues)*0:(length(algorithms)-1), labels=algorithms, lty=0, cex.axis=cexalgo)
 abline(v=.5+length(astarValues)*1:(length(algorithms)-1))
 ## average ESS per second
@@ -229,7 +229,7 @@ plot(rep(1:(length(algorithms)*length(astarValues)),each=length(repNoRange)),avg
 axis(side=2, cex.axis=cexaxis)
 axis(side=1, at=1:(length(algorithms)*length(astarValues)), labels=NA, cex.axis=cexaxis)
 axis(side=1, at=1:(length(algorithms)*length(astarValues)), labels=rep(astarValues,length(algorithms)), cex.axis=cexaxis, lty=0, line=-.2, las=3)
-mtext(side=2, line=3, text='average ESS /sec', cex=cexlab)
+mtext(side=2, line=3, text='avg ESS/sec', cex=cexlab)
 abline(v=.5+length(astarValues)*1:(length(algorithms)-1))
 ## runtime in seconds
 plot(rep(1:(length(algorithms)*length(astarValues)),each=length(repNoRange)), runtime, pch='.', xaxt='n',yaxt='n', xlab='',ylab='', xaxs="i", cex=cexpt, xlim=c(1-.5,(length(algorithms)*length(astarValues))+.5), log='y')
